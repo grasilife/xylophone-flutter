@@ -10,6 +10,18 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$soundNumber.wav');
   }
 
+  Expanded buildkey() {
+    return Expanded(
+      child: TextButton(
+        style: TextButton.styleFrom(backgroundColor: Colors.orange),
+        onPressed: () {
+          playSound(1);
+        },
+        child: null,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,14 +29,18 @@ class XylophoneApp extends StatelessWidget {
         backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              TextButton(
-                style: TextButton.styleFrom(backgroundColor: Colors.red),
-                onPressed: () {
-                  playSound(1);
-                },
-                child: null,
-              )
+              buildkey(),
+              Expanded(
+                child: TextButton(
+                  style: TextButton.styleFrom(backgroundColor: Colors.red),
+                  onPressed: () {
+                    playSound(1);
+                  },
+                  child: null,
+                ),
+              ),
             ],
           ),
         ),
