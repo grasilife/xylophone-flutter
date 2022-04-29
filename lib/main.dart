@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:english_words/english_words.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/rendering.dart';
 
 void main() => runApp(XylophoneApp());
 
@@ -13,7 +14,12 @@ class XylophoneApp extends StatelessWidget {
   Expanded buildkey() {
     return Expanded(
       child: TextButton(
-        style: TextButton.styleFrom(backgroundColor: Colors.orange),
+        style: TextButton.styleFrom(
+          backgroundColor: Colors.orange,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.zero),
+          ),
+        ),
         onPressed: () {
           playSound(1);
         },
@@ -34,7 +40,12 @@ class XylophoneApp extends StatelessWidget {
               buildkey(),
               Expanded(
                 child: TextButton(
-                  style: TextButton.styleFrom(backgroundColor: Colors.red),
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.red,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(0.0),
+                    ),
+                  ),
                   onPressed: () {
                     playSound(1);
                   },
