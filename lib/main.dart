@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 // import 'package:english_words/english_words.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:flutter/rendering.dart';
 
 void main() => runApp(XylophoneApp());
 
@@ -11,17 +10,17 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$soundNumber.wav');
   }
 
-  Expanded buildkey() {
+  Expanded buildkey(Color color, int soundNumber) {
     return Expanded(
       child: TextButton(
         style: TextButton.styleFrom(
-          backgroundColor: Colors.orange,
+          backgroundColor: color,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.zero),
           ),
         ),
         onPressed: () {
-          playSound(1);
+          playSound(soundNumber);
         },
         child: null,
       ),
@@ -36,22 +35,14 @@ class XylophoneApp extends StatelessWidget {
         body: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              buildkey(),
-              Expanded(
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: Colors.red,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(0.0),
-                    ),
-                  ),
-                  onPressed: () {
-                    playSound(1);
-                  },
-                  child: null,
-                ),
-              ),
+            children: <Widget>[
+              buildkey(Colors.red, 1),
+              buildkey(Colors.orange, 2),
+              buildkey(Colors.yellow, 3),
+              buildkey(Colors.green, 4),
+              buildkey(Colors.teal, 5),
+              buildkey(Colors.blue, 6),
+              buildkey(Colors.purple, 7),
             ],
           ),
         ),
