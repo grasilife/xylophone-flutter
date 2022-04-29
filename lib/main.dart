@@ -5,6 +5,11 @@ import 'package:audioplayers/audioplayers.dart';
 void main() => runApp(XylophoneApp());
 
 class XylophoneApp extends StatelessWidget {
+  playSound(int soundNumber) {
+    final player = AudioCache();
+    player.play('note$soundNumber.wav');
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,8 +18,7 @@ class XylophoneApp extends StatelessWidget {
           child: Center(
               child: TextButton(
                   onPressed: () {
-                    final player = AudioCache();
-                    player.play('note1.wav');
+                    playSound(1);
                   },
                   child: Text('click me'))),
         ),
