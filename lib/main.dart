@@ -14,13 +14,19 @@ class XylophoneApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
-          child: Center(
-              child: TextButton(
-                  onPressed: () {
-                    playSound(1);
-                  },
-                  child: Text('click me'))),
+          child: Column(
+            children: [
+              TextButton(
+                style: TextButton.styleFrom(backgroundColor: Colors.red),
+                onPressed: () {
+                  playSound(1);
+                },
+                child: null,
+              )
+            ],
+          ),
         ),
       ),
     );
